@@ -1,0 +1,7 @@
+# Ignore the .env file
+.env
+
+# Ignore the "archived scripts" folder
+archived_scripts/*
+
+queryMarkets.py

@@ -1,0 +1,101 @@
+{
+    "chains": [
+        {
+            "name": "arbitrum",
+            "chainId": 42161,
+            "proxyAddr": "0x8f8BccE4c180B699F81499005281fA89440D1e95",
+            "nodeURL": "https://arbitrum.llamarpc.com"
+        },
+        {
+            "name": "arbitrumSepolia",
+            "chainId": 421614,
+            "proxyAddr": "0x2163cf2f1B7c331C0C757E068D00eFC9A707A1D7",
+            "nodeURL": "https://sepolia-rollup.arbitrum.io/rpc"
+        }
+    ],
+    "priceFeeds": {
+        "onChain": {
+            "WEETH-ETH": {
+                "address": "0x119A190b510c9c0D5Ec301b60B2fE70A50356aE9",
+                "get_latest_price_function": "latestRoundData",
+                "price_index": 1,
+                "decimals": 8,
+                "source": "redstone"
+            },
+            "STUSD-USDC": {
+                "decimals": 6,
+                "source": "angle"
+            }
+        },
+        "offChain": {
+            "common": {
+                "network": "PythEVMStable",
+                "price_feed_url": "https://hermes.pyth.network/v2/updates/price/latest",
+                "decimals": 8,
+                "source": "pyth"
+            },
+            "feeds": {
+                "ETH-USD": {
+                    "id": "0xff61491a931112ddf1bd8147cd1b641375f79f5825126d665480874634fd0ace"
+                },
+                "EUR-USD": {
+                    "id": "0xa995d00bb36a63cef7fd2c287dc105fc8f3d93779f062f09551b0af3e81ec30b"
+                },
+                "BTC-USD": {
+                    "id": "0xe62df6c8b4a85fe1a67db44dc12de5db330f7ac66b72dc658afedf0f4a415b43"
+                },
+                "USDC-USD": {
+                    "id": "0xeaa020c61cc479712813461ce153894a96a6c00b21ed0cfc2798d1f9a9e9c94a"
+                }
+            }
+        }
+    },
+    "perpetuals": [
+        {
+            "id": 200000,
+            "poolSymbol": "WEETH",
+            "baseCurrency": "ETH",
+            "quoteCurrency": "USD",
+            "s2": [
+                "*",
+                "ETH-USD"
+            ],
+            "s3": [
+                "*",
+                "WEETH-ETH",
+                "*",
+                "ETH-USD"
+            ]
+        },
+        {
+            "id": 300000,
+            "poolSymbol": "STUSD",
+            "baseCurrency": "EUR",
+            "quoteCurrency": "USD",
+            "s2": [
+                "*",
+                "EUR-USD"
+            ],
+            "s3": [
+                "*",
+                "STUSD-USDC",
+                "*",
+                "USDC-USD"
+            ]
+        },
+        {
+            "id": 100000,
+            "poolSymbol": "USDC",
+            "baseCurrency": "BTC",
+            "quoteCurrency": "USD",
+            "s2": [
+                "*",
+                "BTC-USD"
+            ],
+            "s3": [
+                "*",
+                "USDC-USD"
+            ]
+        }
+    ]
+}
