@@ -116,7 +116,7 @@ def main():
     with open("config.json") as config_file:
         config = json.load(config_file)
     
-    perpetual_id = 100000
+    perpetual_id = 200000
     chain_name = "arbitrumSepolia"
     
     web3 = connect_to_blockchain(chain_name, config)

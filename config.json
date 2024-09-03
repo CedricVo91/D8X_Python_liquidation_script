@@ -82,20 +82,6 @@
                 "*",
                 "USDC-USD"
             ]
-        },
-        {
-            "id": 100000,
-            "poolSymbol": "USDC",
-            "baseCurrency": "BTC",
-            "quoteCurrency": "USD",
-            "s2": [
-                "*",
-                "BTC-USD"
-            ],
-            "s3": [
-                "*",
-                "USDC-USD"
-            ]
         }
     ]
 }
