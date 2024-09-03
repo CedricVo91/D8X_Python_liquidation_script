@@ -1,24 +1,9 @@
-import logging
 import json 
 from web3 import Web3
 
 from getOffchainPriceHermes import get_offchain_price, get_vaa_from_pyth, get_publish_time 
 from getOnchainPriceRedStone import get_onchain_price_redstone
 from getOnchainPriceAngle import get_stusd_to_usdc_price
-"""
-logging.basicConfig(level=logging.INFO, filename = "log.log", filemode="w", format ="%(asctime)s - %(levelname)s - %(message)s")
-logging.debug("debug")
-logging.warning("warning")
-logging.critical("CRITICAL")
-
-var = 2
-logging.info(f"the value of x is {var}")
-
-try: 
-    1/0
-except ZeroDivisionError as e:
-    logging.exception("ZeroDivisionError", exc_info = True)
-"""
 
 #helper functions:
 #1. helper function to convert to required format
@@ -79,7 +64,7 @@ def get_prices(perpetual_id, config):
     
         # Save the calculated price
         prices[key] = (price_name,price)
-    print(prices)
+    
     return prices["s2"], prices["s3"]
 
 #3. connect to blockchain
@@ -101,8 +86,6 @@ def liquidate_positions(perpetual_id, config, web3, chain_name):
     
     perpetual_contract = web3.eth.contract(address=address, abi=proxy_abi)
     price1, price2 = get_prices(perpetual_id, config)
-    print(price1[1])
-    print(price2[1])
 
     liquidatable_accounts = perpetual_contract.functions.getLiquidatableAccounts(
         perpetual_id, [abdk64x64_conversion(price1[1]), abdk64x64_conversion(price2[1])]
