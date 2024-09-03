@@ -28,9 +28,6 @@ D8X is an institutional-grade perpetual futures engine that revolutionizes on-ch
    pip install -r requirements.txt
    ```
 
-3. Set up configuration:
-   - Review and edit `config.json` to match your requirements, including network details and price feeds.
-
 ## Usage
 - **Running the script**:
   To execute the liquidation script, use the following command:
