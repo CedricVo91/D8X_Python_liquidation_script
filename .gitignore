@@ -5,3 +5,5 @@
 archived_scripts/*
 
 queryMarkets.py
+
+__pycache__/*
