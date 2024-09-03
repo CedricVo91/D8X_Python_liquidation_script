@@ -1,9 +1,9 @@
 # D8X Liquidation Script
 
 ## Overview
-This repository contains a Python script developed by D8X for identifying and liquidating accounts that can be liquidated within their white-labeling software solution on the Arbitrum blockchain (both mainnet and testnet). The solution is built to facilitate third parties in constructing their own perpetual swap decentralized exchanges using the D8X platform.
+This repository contains a Python script designed for independent traders looking to earn a fee by liquidating undercollateralized accounts on the D8X exchange. The script automates the process of identifying and liquidating eligible accounts on the Arbitrum blockchain (mainnet and testnet), enabling users to earn fees for each successful liquidation.
 
-The script is designed to be user-friendly, leveraging a configuration file (`config.json`) to simplify the process for Python developers, including beginners. This allows users to run the script without needing to worry about the complexities of different price feeds, addresses, and other technical details. The primary function of the script is to enable users to liquidate undercollateralized accounts and earn fees for this service.
+The script is user-friendly, requiring minimal setup. A configuration file (`config.json`) simplifies the process by handling network connections, price feeds, and contract interactions, making it accessible even to those with basic Python knowledge. With this tool, you can capitalize on the opportunities offered by the D8X platform without worrying about the complexities involved.
 
 ## About D8X
 D8X is an institutional-grade perpetual futures engine that revolutionizes on-chain trading by enabling decentralized perpetual futures with a robust financial engineering approach. The platform provides a decentralized BitMEX-like experience, customizable for white-labeling out of the box. D8X allows for perpetuals to be collateralized with nearly any ERC-20 token, including yield-bearing assets, providing flexible and adaptive trading solutions.
@@ -110,6 +110,3 @@ Contributions are welcome! Please open an issue or submit a pull request with yo
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
-
-## Contact
-For any questions or support, please contact the D8X development team at support@d8x.io.
