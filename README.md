@@ -39,7 +39,7 @@ D8X is an institutional-grade perpetual futures engine that revolutionizes on-ch
   ```
 
 - **Configuration**:
-  The script is highly configurable via the `config.json` file. This file allows users to specify which network to operate on, the addresses of the relevant smart contracts, and which price feeds to use.
+  The script abstracts away a great deal of set-up complexities via the config file, so that beginner liquidators can focus on the actual liquidations.
 
 - **Earning Fees**:
   When the script successfully liquidates an account, a portion of the liquidation fee is awarded to the user running the script. This fee is subtracted from the trader's margin.
