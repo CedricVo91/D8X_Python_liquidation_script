@@ -7,3 +7,9 @@ archived_scripts/*
 queryMarkets.py
 
 __pycache__/
+
+logged_liquidated_positions.py
+
+logger.py
+
+formatted.log
