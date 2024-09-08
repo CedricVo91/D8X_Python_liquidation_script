@@ -8,8 +8,12 @@ queryMarkets.py
 
 __pycache__/
 
+web3/*
+
 logged_liquidated_positions.py
 
 logger.py
 
 formatted.log
+
+.DS_Store
