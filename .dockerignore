@@ -1,4 +1,3 @@
-# Ignore the .env file
 .env
 
 # Ignore the "archived scripts" folder
@@ -18,7 +17,5 @@ formatted.log
 
 .DS_Store
 
-# Ignore the "logs" folder
-logs/*
-
-src/liquidation/helpers/__pycache__/
+# test: ignore the current liquidation.log file
+liquidation.log

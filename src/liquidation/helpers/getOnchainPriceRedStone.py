@@ -10,8 +10,8 @@ def get_onchain_price_redstone(price_feed, config):
         raise ConnectionError("Failed to connect to Arbitrum mainnet")
     
     address = price_feed["address"]
-    abi_file = "./RedStoneAbi.json" #on chain price oracle
-    with open(abi_file, "r") as redstone_abi_file:
+     #on chain price oracle
+    with open("././abi/RedStoneAbi.json", "r") as redstone_abi_file:
         redstone_abi = json.load(redstone_abi_file)
 
     redstone_contract = mainnet_web3.eth.contract(address=address, abi=redstone_abi)
