@@ -18,4 +18,4 @@ formatted.log
 .DS_Store
 
 # test: ignore the current liquidation.log file
-liquidation.log
+logs/liquidation.log

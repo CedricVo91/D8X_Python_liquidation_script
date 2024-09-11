@@ -23,7 +23,6 @@ logging.basicConfig(
     force=True  # Overwrite any existing logging config
 )
 
-
 #helper functions:
 #1. helper function to convert to required format
 def abdk64x64_conversion(number):
