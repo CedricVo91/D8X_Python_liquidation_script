@@ -7,8 +7,9 @@ WORKDIR /usr/src/app
 # Set the LOG_DIR environment variable
 ENV LOG_DIR=/usr/src/app/logs
 
-# Install tzdata for timezone support
-RUN apt-get update
+# Install tzdata for timezone support and create LOG_DIR
+RUN apt-get update && \
+    mkdir -p $LOG_DIR
 
 # Copy all files from the current directory into the working directory
 COPY . .

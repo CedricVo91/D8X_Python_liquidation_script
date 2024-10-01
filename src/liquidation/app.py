@@ -188,11 +188,6 @@ def liquidate_positions(perpetual_id, config, web3, chain_name):
             continue
 
         try:
-            # Get the current gas price and increase it significantly
-            #current_gas_price = web3.eth.gas_price
-            #gas_price = max(int(current_gas_price * 1.5), web3.to_wei(1.5, 'gwei'))  # Ensure at least 1.5 Gwei
-            #logging.info(f"Current gas price: {web3.from_wei(current_gas_price, 'gwei')} gwei")
-            #logging.info(f"Setting gas price to: {web3.from_wei(gas_price, 'gwei')} gwei")
 
             tx_hash = perpetual_contract.functions.liquidateByAMM(
                 perpetual_id,
@@ -200,7 +195,7 @@ def liquidate_positions(perpetual_id, config, web3, chain_name):
                 traderAddr,
                 updateData,
                 publishTimes
-            ).transact({"from": liquidatorAddr, "gas": 1_000_000,  "value": len(publishTimes)}) # Adjust the gas limit as needed
+            ).transact({"from": liquidatorAddr, "gas": 10_000_000,  "value": len(publishTimes)}) # Adjust the gas limit as needed
         
             receipt = web3.eth.wait_for_transaction_receipt(tx_hash)
             logging.info(f"Liquidated {traderAddr}, transaction hash: {receipt.transactionHash.hex()}")
