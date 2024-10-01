@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 
 import json 
 import os
+from pathlib import Path
 import time 
 import logging
 import sys
@@ -12,8 +13,22 @@ from helpers.getOffchainPriceHermes import get_offchain_data
 from helpers.getOnchainPriceRedStone import get_onchain_price_redstone
 from helpers.getOnchainPriceAngle import get_stusd_to_usdc_price
 
-#configure logging 
-log_path = '/Users/cedric/D8X/D8X_Python_liquidation_script/logs/liquidation.log'
+# Get the base directory of the project
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+print(BASE_DIR)
+
+# Load environment variables
+load_dotenv(BASE_DIR / '.env')
+
+# Configure logging so that it works in the docker container
+LOG_DIR = os.getenv('LOG_DIR', BASE_DIR / 'logs') #either get the env variable from log_dir (in case of running it via dockers) or get the default value (when running it locally)
+#create directory LOG_DIR when it does not exit (in case we download our github repo - and local logs folder won't be pushed)
+os.makedirs(LOG_DIR, exist_ok=True)
+log_path = Path(LOG_DIR) / 'liquidation.log'
+
+#old absolute log path to run it just locally
+#log_path = '/Users/cedric/D8X/D8X_Python_liquidation_script/logs/liquidation.log'
+
 logging.basicConfig(
     level=logging.INFO,  # Log level
     format='%(asctime)s - %(levelname)s - %(message)s',  # Log format
@@ -128,7 +143,8 @@ def liquidate_positions(perpetual_id, config, web3, chain_name):
     """Fetch and liquidate positions for a given perpetual"""
     
     address = next(chain for chain in config["chains"] if chain["name"] == chain_name)["proxyAddr"]
-    abi_path = '/Users/cedric/D8X/D8X_Python_liquidation_script/abi/IPerpetualManager.json'
+    #abi_path = '/Users/cedric/D8X/D8X_Python_liquidation_script/abi/IPerpetualManager.json'
+    abi_path = BASE_DIR / 'abi' / 'IPerpetualManager.json'
     with open(abi_path) as proxy_abi_file:
         proxy_abi = json.load(proxy_abi_file)
     
@@ -202,7 +218,8 @@ def main():
     try:
         load_dotenv()
 
-        config_path = '/Users/cedric/D8X/D8X_Python_liquidation_script/config/config.json'
+        #config_path = '/Users/cedric/D8X/D8X_Python_liquidation_script/config/config.json'
+        config_path = BASE_DIR / 'config' / 'config.json'
         with open(config_path) as config_file:
             config = json.load(config_file)
     

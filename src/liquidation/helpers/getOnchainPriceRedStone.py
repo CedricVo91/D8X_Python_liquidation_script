@@ -1,6 +1,10 @@
 from web3 import Web3
 import json
+from pathlib import Path
 
+# Get the base directory of the project
+BASE_DIR = Path(__file__).resolve().parent.parent.parent.parent
+print(BASE_DIR)
 
 def get_onchain_price_redstone(price_feed, config):
     # Instantiate the contract
@@ -11,7 +15,7 @@ def get_onchain_price_redstone(price_feed, config):
     
     address = price_feed["address"]
      #on chain price oracle
-    abi_path = '/Users/cedric/D8X/D8X_Python_liquidation_script/abi/RedStoneAbi.json'
+    abi_path = BASE_DIR / 'abi' / 'RedStoneAbi.json'
     with open(abi_path, "r") as redstone_abi_file:
         redstone_abi = json.load(redstone_abi_file)
 
