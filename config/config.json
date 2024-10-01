@@ -83,6 +83,23 @@
                 "*",
                 "USDC-USD"
             ]
+        },
+        {
+            "id": 100003,
+            "poolSymbol": "USDC",
+            "baseCurrency": "EUR",
+            "quoteCurrency": "USDC",
+            "s2": [
+                "*",
+                "EUR-USD",
+                "/",
+                "USDC-USD"
+            ],
+            
+            "s3": [
+                
+            ]
         }
+
     ]
 }

@@ -11,7 +11,8 @@ def get_onchain_price_redstone(price_feed, config):
     
     address = price_feed["address"]
      #on chain price oracle
-    with open("././abi/RedStoneAbi.json", "r") as redstone_abi_file:
+    abi_path = '/Users/cedric/D8X/D8X_Python_liquidation_script/abi/RedStoneAbi.json'
+    with open(abi_path, "r") as redstone_abi_file:
         redstone_abi = json.load(redstone_abi_file)
 
     redstone_contract = mainnet_web3.eth.contract(address=address, abi=redstone_abi)
